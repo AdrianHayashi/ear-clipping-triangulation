@@ -1,6 +1,6 @@
 {
   "name": "ear-clipping-triangulation",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Triangulates a simple polygon by iteratively clipping ears with orientation and convexity tests.",
   "type": "module",
   "main": "src/index.js",
