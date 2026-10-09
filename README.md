@@ -22,3 +22,10 @@ Ear clipping is the simplest correct polygon triangulator to implement from scra
 ## Edge cases
 
 The input must be a *simple* polygon — no self-intersections, no holes. Consecutive duplicate points are not handled. Near-collinear vertices (within ~1e-12) are treated as reflex and skipped rather than emitted as zero-area slivers, so a polygon whose total area is effectively zero yields an empty result rather than a pile of degenerate triangles. If you have a polygon with holes, cut a seam first.
+
+## Design notes
+
+The window stores values eagerly rather than keeping running aggregates. Running
+sums drift with floating point over long streams, and recomputing from a small
+buffer is cheap enough that the drift is not worth the speed.
+
